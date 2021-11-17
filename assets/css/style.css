@@ -1,0 +1,40 @@
+.game-body {
+    background-color: #135811;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 3em;
+}
+
+.game-area {
+    background-color: #ACAFAC;
+    text-align: center;
+    margin: 2em;
+    padding: 1em;
+}
+
+.game-difficulty {
+    margin: 2em;
+    font-size: 1.5em;
+
+}
+
+.col-lower {
+    text-align: right;
+}
+
+.col-higher {
+    text-align: left;
+}
+
+
+.random-number {
+    border: 1px solid;
+    background-color: #fff;
+    width: fit-content;
+    margin: auto;
+    padding: 1em;
+
+
+}
