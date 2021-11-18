@@ -1,17 +1,25 @@
 .game-body {
     background-color: #135811;
+    font-family: Permanent Marker, sans-serif;
+    font-size: 1em;
+
+}
+
+.game-body .row {
+    padding: 15px;
 }
 
 h1 {
     text-align: center;
-    padding-top: 3em;
+    padding-top: 10px;
+    color: #fff;
 }
 
 .game-area {
     background-color: #ACAFAC;
     text-align: center;
     margin: 2em;
-    padding: 1em;
+    border-radius: 1em;
 }
 
 .game-difficulty {
@@ -28,6 +36,14 @@ h1 {
     text-align: left;
 }
 
+@media screen and (max-width: 425px) {
+
+    .col-higher,
+    .col-lower {
+        text-align: center !important;
+        padding: 0.5em 0 0.5em 0;
+    }
+}
 
 .random-number {
     border: 1px solid;
@@ -37,4 +53,9 @@ h1 {
     padding: 1em;
 
 
+}
+
+footer {
+    text-align: center;
+    font-size: 2em;
 }
