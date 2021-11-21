@@ -30,7 +30,7 @@ function runGame(difficulty) {
         runGame3(hardNum)
     }
 }
-
+/* maniupulates the dom by displaying the generated random number from the rungame function into the allocated span in the html*/
 function runGame1(easyNum) {
     document.getElementById("game-num").textContent = `${easyNum}`;
 };
