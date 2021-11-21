@@ -22,20 +22,26 @@ function runGame(difficulty) {
     let medNum = Math.floor(Math.random() * 15);
     let hardNum = Math.floor(Math.random() * 20);
 
-    if (diffculty === "easy") {
-        runGame1()
+    if (difficulty === "easy") {
+        runGame1(easyNum)
     } else if (difficulty === "medium") {
-        runGame2()
+        runGame2(medNum)
     } else if (difficulty === "hard") {
-        runGame3()
+        runGame3(hardNum)
     }
 }
 
-function runGame1(easyNum) {};
+function runGame1(easyNum) {
+    document.getElementById("game-num").textContent = `${easyNum}`;
+};
 
-function runGame2(medNum) {};
+function runGame2(medNum) {
+    document.getElementById("game-num").textContent = `${medNum}`;
+};
 
-function runGame3(hardNum) {};
+function runGame3(hardNum) {
+    document.getElementById("game-num").textContent = `${hardNum}`;
+};
 
 function calculateCorrectAnswer() {
 
