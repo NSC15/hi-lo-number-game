@@ -4,15 +4,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (let button of buttons) {
         button.addEventListener("click", function () {
+
+            let difficulty = this.getAttribute("data-type");
+            runGame(difficulty);
+
             if (this.getAttribute("data-type") === "higher") {
+                checkInput(userNum, backgroundNum, userInput);
+                let highChoice = this.getAttribute("data-type");
                 checkInput();
-            } else if (this.getAttribute("data-type") === "lower") {
-                checkInput();
-            } else {
-                let difficulty = this.getAttribute("data-type");
-                runGame(difficulty);
 
             }
+            if (this.getAttribute("data-type") === "lower") {
+                checkInput(userNum, backgroundNum, userInput);
+                let lowChoice = this.getAttribute("data-type");
+                checkInput();
+            }
+
+
         });
     }
 })
@@ -40,12 +48,16 @@ function randomNum(difficulty) {
 function runGame(difficulty) {
     let userNum = randomNum(difficulty);
     displayNum(userNum);
-    console.log("GAME IS RUNNING");
     let backgroundNum = randomNum(difficulty);
     console.log(backgroundNum)
-    userAnswer = checkUserInput();
-    console.log(userAnswer)
-    checkInput();
+    let userInput = checkUserInput(highChoice, lowChoice);
+    checkInput(userNum, backgroundNum, userInput)
+
+
+
+
+
+
 
 
 }
@@ -53,13 +65,32 @@ function runGame(difficulty) {
 function displayNum(userNum) {
     document.getElementById("game-num").textContent = `${userNum}`
 }
+/*check actual answer and check against user answer*/
+function checkInput(userNum, backgroundNum, userInput) {
 
-function checkInput(userNum, backgroundNum, userAnswer) {
+
+    if (backgroundNum > userNum && userInput === highChoice) {
+        alert("You are correct the number displayed is lower than the console number")
+
+    } else {
+        alert("You are incorrect the number displayed is higher than the console number")
+    }
+
+
+    if (backgroundNum < userNum && userInput === lowChoice) {
+        alert("You are correct the number displayed is higher than the console number")
+    } else {
+        alert("You are incorrect the number displayed is lower than the console number")
+    }
 
 }
-
-function checkUserInput() {
-
+/*check user guess and return higher or lower to the userInput variable for the check input function*/
+function checkUserInput(highChoice, lowChoice) {
+    if (highChoice) {
+        return highChoice
+    } else if (lowChoice) {
+        return lowChoice
+    }
 }
 
 
