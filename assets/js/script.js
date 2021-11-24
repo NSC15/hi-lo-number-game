@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let button of buttons) {
         button.addEventListener("click", function () {
             if (this.getAttribute("data-type") === "higher") {
-                checkInput();
+                alert("Please choose a difficulty");
             } else if (this.getAttribute("data-type") === "lower") {
-                checkInput();
+                alert("Please choose a difficulty");
             } else {
                 let difficulty = this.getAttribute("data-type");
                 runGame(difficulty);
@@ -18,22 +18,46 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 /*Generate Random Numbers for each difficulty*/
-function randomNum(userNum) {
-    userNum = Math.ceil(Math.random() * 10);
+function randomNum(difficulty) {
+    if (difficulty == "easy") {
+        userNum = Math.ceil(Math.random() * 10);
+        backgroundNum = Math.ceil(Math.random() * 10);
+    } else if (difficulty == "medium") {
+        userNum = Math.ceil(Math.random() * 15);
+        backgroundNum = Math.ceil(Math.random() * 15);
+    } else if (difficulty == "hard") {
+        userNum = Math.ceil(Math.random() * 20);
+        backgroundNum = Math.ceil(Math.random() * 20);
+
+    }
+
     return userNum
+    return backgroundNum
+
 
 }
 /*main rungame function declaring shown number and number for checking higher or lower*/
 function runGame(difficulty) {
     let userNum = randomNum(difficulty);
     displayNum(userNum);
-}
+    console.log("GAME IS RUNNING");
+    let backgroundNum = randomNum(difficulty);
 
+
+}
+/*Manipulates the DOM and throws the random generated userNum into the span box*/
 function displayNum(userNum) {
     document.getElementById("game-num").textContent = `${userNum}`
 }
 
-function checkInput() {
+function checkInputHigher(userNum, backgroundNum) {
+    if (userNum > backgroundNum) {
+        addBank();
+        console.log("you have guessed correctly");
+    }
+}
+
+function checkInputLower() {
 
 }
 
