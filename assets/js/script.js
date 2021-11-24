@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let button of buttons) {
         button.addEventListener("click", function () {
             if (this.getAttribute("data-type") === "higher") {
-                alert("Please choose a difficulty");
+                checkInput(userAnswer);
             } else if (this.getAttribute("data-type") === "lower") {
-                alert("Please choose a difficulty");
+                checkInput(userAnswer);
             } else {
                 let difficulty = this.getAttribute("data-type");
                 runGame(difficulty);
@@ -21,18 +21,18 @@ document.addEventListener("DOMContentLoaded", function () {
 function randomNum(difficulty) {
     if (difficulty == "easy") {
         userNum = Math.ceil(Math.random() * 10);
-        backgroundNum = Math.ceil(Math.random() * 10);
+
     } else if (difficulty == "medium") {
         userNum = Math.ceil(Math.random() * 15);
-        backgroundNum = Math.ceil(Math.random() * 15);
+
     } else if (difficulty == "hard") {
         userNum = Math.ceil(Math.random() * 20);
-        backgroundNum = Math.ceil(Math.random() * 20);
+
 
     }
 
     return userNum
-    return backgroundNum
+
 
 
 }
@@ -42,6 +42,10 @@ function runGame(difficulty) {
     displayNum(userNum);
     console.log("GAME IS RUNNING");
     let backgroundNum = randomNum(difficulty);
+    console.log(backgroundNum)
+    userAnswer = checkUserInput();
+    console.log(checkUserInput)
+    checkInput();
 
 
 }
@@ -50,16 +54,15 @@ function displayNum(userNum) {
     document.getElementById("game-num").textContent = `${userNum}`
 }
 
-function checkInputHigher(userNum, backgroundNum) {
-    if (userNum > backgroundNum) {
-        addBank();
-        console.log("you have guessed correctly");
-    }
-}
-
-function checkInputLower() {
+function checkInput(userNum, backgroundNum, userAnswer) {
 
 }
+
+function checkUserInput() {
+
+}
+
+
 
 function addBank() {
 
