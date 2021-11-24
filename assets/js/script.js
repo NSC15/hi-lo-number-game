@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let button of buttons) {
         button.addEventListener("click", function () {
             if (this.getAttribute("data-type") === "higher") {
-                checkInput(userAnswer);
+                checkInput();
             } else if (this.getAttribute("data-type") === "lower") {
-                checkInput(userAnswer);
+                checkInput();
             } else {
                 let difficulty = this.getAttribute("data-type");
                 runGame(difficulty);
@@ -44,7 +44,7 @@ function runGame(difficulty) {
     let backgroundNum = randomNum(difficulty);
     console.log(backgroundNum)
     userAnswer = checkUserInput();
-    console.log(checkUserInput)
+    console.log(userAnswer)
     checkInput();
 
 
