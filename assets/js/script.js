@@ -4,16 +4,22 @@ document.addEventListener("DOMContentLoaded", function () {
     let controls = document.getElementsByClassName("controls");
     for (let button of controls) {
         button.addEventListener("click", function () {
-            let userInput = this.getAttribute("data-type");
-            checkUserInput(userInput);
+
             if (this.getAttribute("data-type") === "higher") {
-                userInput === "higher"
+                let userInput = "higher"
+                checkUserInput(userInput);
+                checkInput(runGame);
+
                 console.log("you guessed higher");
-                checkInput(userInput);
+
+
             } else if (this.getAttribute("data-type") === "lower") {
-                userInput === "lower"
+                userInput = "lower"
+                checkUserInput(userInput)
                 console.log("you guessed lower");
-                checkInput(userInput);
+                checkInput(runGame);
+
+
             }
 
 
@@ -66,12 +72,7 @@ function runGame(difficulty) {
     displayNum(userNum);
     let backgroundNum = randomNum(difficulty);
     console.log(backgroundNum)
-
-
-
-
-
-
+    checkInput(userNum, backgroundNum)
 
 
 }
@@ -80,27 +81,19 @@ function displayNum(userNum) {
     document.getElementById("game-num").textContent = `${userNum}`
 }
 /*check actual answer and check against user answer*/
-function checkInput(userNum, backgroundNum, userInput) {
-
-
-    if (backgroundNum > userNum && userInput === "higher") {
-        alert("You are correct the number displayed is lower than the console number")
-
-    } else {
-        alert("You are incorrect the number displayed is higher than the console number")
-    }
-
-
-    if (backgroundNum < userNum && userInput === "lower") {
-        alert("You are correct the number displayed is higher than the console number")
-    } else {
-        alert("You are incorrect the number displayed is lower than the console number")
+function checkInput(userNum, backgroundNum) {
+    if (userNum > backgroundNum) {
+        console.log("answer is lower")
+    } else if (userNum < backgroundNum) {
+        console.log("answer is higher")
     }
 
 }
 /*check user guess and return higher or lower to the userInput variable for the check input function*/
-function checkUserInput() {
-
+function checkUserInput(userInput, answer) {
+    checkInput(userInput);
+    console.log("i am checking your guess to see if it matches the answer")
+    checkInput(userInput);
 
 }
 
