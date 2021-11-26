@@ -1,112 +1,93 @@
+// This will be chosen based on the difficulty chosen by the user
+let difficultyDataMapper = {
+    "easy": {
+        "lives": 5,
+        "maxNum": 10,
+    },
+    "medium": {
+        "lives": 4,
+        "maxNum": 15,
+    },
+    "hard": {
+        "lives": 3,
+        "maxNum": 20,
+    },
+}
+let lives = 0; // initially until difficulty is chosen
+let score = 0;
+let chosenDifficulty;
+let lastNumber;
+
 /*Wait till the full page is loaded before running the game.*/
 document.addEventListener("DOMContentLoaded", function () {
-    let buttons = document.getElementsByClassName("game-setting");
-    let controls = document.getElementsByClassName("controls");
-    for (let button of controls) {
-        button.addEventListener("click", function () {
-
-            if (this.getAttribute("data-type") === "higher") {
-                let userInput = "higher"
-                checkUserInput(userInput);
-                checkInput(runGame);
-
-                console.log("you guessed higher");
-
-
-            } else if (this.getAttribute("data-type") === "lower") {
-                userInput = "lower"
-                checkUserInput(userInput)
-                console.log("you guessed lower");
-                checkInput(runGame);
-
-
-            }
-
-
-        });
+    // RF: TODO: Better naming than buttons or coontrols - what do they refer to? 
+    // RF: Anyone looking at your code can't tell without actually reading it
+    let gameDifficulty = document.getElementsByClassName("game-setting");
+    let userAnswer = document.getElementsByClassName("higher_lower_btns");
+    for (let button of userAnswer) {
+        // RF: Split functions don't have them inline here.
+        button.addEventListener("click", higherOrLowerInput);
     }
-    for (let button of buttons) {
-        button.addEventListener("click", function () {
 
-            let difficulty = this.getAttribute("data-type");
-            runGame(difficulty);
-
-            if (this.getAttribute("data-type") === "easy") {
-                difficulty = "easy"
-                console.log("you chose easy");
-            } else if (this.getAttribute("data-type") === "medium") {
-                difficulty = "medium"
-                console.log("you chose medium")
-            } else if (this.getAttribute("data-type") === "hard") {
-                difficulty = "hard"
-                console.log("you chose hard");
-            }
-
-
-        });
+    // RF: what button (difficulty)? better variable naming needed.
+    for (let button of gameDifficulty) {
+        button.addEventListener("click", difficultyChoice);
     }
 })
 
-/*Generate Random Numbers for each difficulty*/
-function randomNum(difficulty) {
-    if (difficulty == "easy") {
-        userNum = Math.ceil(Math.random() * 10);
-
-    } else if (difficulty == "medium") {
-        userNum = Math.ceil(Math.random() * 15);
-
-    } else if (difficulty == "hard") {
-        userNum = Math.ceil(Math.random() * 20);
-
-
+function higherOrLowerInput() {
+    if (this.getAttribute("data-type") === "higher") {
+        runGame("higher");
+    } else if (this.getAttribute("data-type") === "lower") {
+        runGame("lower");
     }
-
-    return userNum
-
-
-
 }
-/*main rungame function declaring shown number and number for checking higher or lower*/
-function runGame(difficulty) {
-    let userNum = randomNum(difficulty);
-    displayNum(userNum);
-    let backgroundNum = randomNum(difficulty);
-    console.log(backgroundNum)
-    checkInput(userNum, backgroundNum)
 
-
+function difficultyChoice() {
+    // Assign lives based on difficulty (easy/medium/hard)
+    lives = difficultyDataMapper[this.getAttribute("data-type")].lives;
+    chosenDifficulty = this.getAttribute("data-type");
+    // RF: TODO: Disable the difficulty css display: none here.
+    // RF: TODO: Show the number, buttons etc.
+    // RF: TODO: Show lives etc. in HTML instead of them being hardcoded
+    lastNumber = randomNum();
+    displayNum(lastNumber);
 }
-/*Manipulates the DOM and throws the random generated userNum into the span box*/
+
+/*
+Generate Random Numbers for each difficulty
+*/
+function randomNum() {
+    return Math.ceil(Math.random() * difficultyDataMapper[chosenDifficulty].maxNum);
+}
+
+/*
+main rungame function declaring shown number and number for checking higher or lower
+*/
+function runGame(chosenButton) {
+    let nextNumber = randomNum(chosenDifficulty);
+    if ((nextNumber > lastNumber && chosenButton == "higher") || (nextNumber < lastNumber && chosenButton == "lower")) {
+        score += 1;
+        document.getElementById("score").innerHTML = score;
+        console.log("Correct, increase score")
+    } else {
+        console.log("Incorrect, decrease life");
+        lives -= 1;
+        document.getElementById("lives").innerHTML = lives;
+        // TODO: Check if life is 0, game over if so
+        // Restart
+    }
+    lastNumber = nextNumber;
+    displayNum(lastNumber);
+}
+
+/*
+Manipulates the DOM and throws the random generated userNum into the span box
+*/
 function displayNum(userNum) {
     document.getElementById("game-num").textContent = `${userNum}`
 }
-/*check actual answer and check against user answer*/
-function checkInput(userNum, backgroundNum) {
-    if (userNum > backgroundNum) {
-        console.log("answer is lower")
-    } else if (userNum < backgroundNum) {
-        console.log("answer is higher")
-    }
-
-}
-/*check user guess and return higher or lower to the userInput variable for the check input function*/
-function checkUserInput(userInput, answer) {
-    checkInput(userInput);
-    console.log("i am checking your guess to see if it matches the answer")
-    checkInput(userInput);
-
-}
 
 
 
-function addBank() {
-
-}
-
-function takeLife() {
-
-}
-
-function highScore() {
-
-}
+function highScore() {}
