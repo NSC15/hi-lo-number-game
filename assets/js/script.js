@@ -1,4 +1,4 @@
-// This will be chosen based on the difficulty chosen by the user
+// Difficulty settings and their characteristics, assigned when user chooses a difficulty //
 let difficultyDataMapper = {
     "easy": {
         "lives": 5,
@@ -14,7 +14,7 @@ let difficultyDataMapper = {
     },
 }
 let lives = 0; // initially until difficulty is chosen
-let score = 0;
+let score = 0; // starting score
 let chosenDifficulty;
 let lastNumber;
 
@@ -47,12 +47,21 @@ function difficultyChoice() {
     // Assign lives based on difficulty (easy/medium/hard)
     lives = difficultyDataMapper[this.getAttribute("data-type")].lives;
     chosenDifficulty = this.getAttribute("data-type");
+    let difficultyButtons = document.getElementsByClassName("game-setting");
+    for (let button of difficultyButtons) {
+        button.style.display = "none";
+    }
+
+
+
+
     // RF: TODO: Disable the difficulty css display: none here.
     // RF: TODO: Show the number, buttons etc.
     // RF: TODO: Show lives etc. in HTML instead of them being hardcoded
     lastNumber = randomNum();
     displayNum(lastNumber);
 }
+
 
 /*
 Generate Random Numbers for each difficulty
