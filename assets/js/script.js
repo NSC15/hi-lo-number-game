@@ -52,7 +52,7 @@ function difficultyChoice() {
     for (let button of difficultyButtons) {
         button.style.display = "none";
     }
-    document.getElementById("chosen-difficulty").textContent = "You are playing  " + chosenDifficulty;
+    document.getElementById("chosen-difficulty").innerHTML = "You are playing  " + chosenDifficulty;
 
 
 
