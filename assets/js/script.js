@@ -45,12 +45,14 @@ function higherOrLowerInput() {
 
 function difficultyChoice() {
     // Assign lives based on difficulty (easy/medium/hard)
+    // Import Difficulty Settings button from DOM and hide them once difficulty is chosen via For loop
     lives = difficultyDataMapper[this.getAttribute("data-type")].lives;
     chosenDifficulty = this.getAttribute("data-type");
     let difficultyButtons = document.getElementsByClassName("game-setting");
     for (let button of difficultyButtons) {
         button.style.display = "none";
     }
+    document.getElementById("chosen-difficulty").textContent = "You are playing  " + chosenDifficulty;
 
 
 
