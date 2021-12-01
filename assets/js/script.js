@@ -12,7 +12,7 @@ let difficultyDataMapper = {
         "lives": 3,
         "maxNum": 20,
     },
-}
+};
 let lives = 0; // initially until difficulty is chosen
 let score = 0; // starting score
 let chosenDifficulty;
@@ -21,15 +21,16 @@ let lastNumber;
 /*Wait till the full page is loaded before running the game.*/
 document.addEventListener("DOMContentLoaded", function () {
     let gameDifficulty = document.getElementsByClassName("game-setting");
-    let userAnswer = document.getElementsByClassName("higher_lower_btns");
-    for (let button of userAnswer) {
+    let userAnswers = document.getElementsByClassName("higher_lower_btns");
+    for (let button of userAnswers) {
         button.addEventListener("click", higherOrLowerInput);
+        button.style.visibility = "hidden";
     }
 
     for (let button of gameDifficulty) {
         button.addEventListener("click", difficultyChoice);
     }
-})
+});
 // Runs game with value of user input e.g Guessed Higher or Lower and gives that value to the runGame function
 function higherOrLowerInput() {
     if (this.getAttribute("data-type") === "higher") {
@@ -51,6 +52,8 @@ function difficultyChoice() {
     document.getElementById("chosen-difficulty").innerHTML = "You are playing  " + chosenDifficulty;
     document.getElementById("lives").innerHTML = "Your Lives =  " + lives;
     document.getElementById("score-display").innerHTML = "Score =  " + score;
+    document.getElementsByClassName("higher_lower_btns")[0].style.visibility = 'visible';
+    document.getElementsByClassName("higher_lower_btns")[1].style.visibility = 'visible';
 
     lastNumber = randomNum();
     displayNum(lastNumber);
@@ -72,7 +75,7 @@ function runGame(chosenButton) {
     if ((nextNumber > lastNumber && chosenButton == "higher") || (nextNumber < lastNumber && chosenButton == "lower")) {
         score += 1;
         document.getElementById("score-display").innerHTML = "Your Score =  " + score;
-        console.log("Correct, increase score")
+        console.log("Correct, increase score");
     } else {
         console.log("Incorrect, decrease life");
         lives -= 1;
@@ -80,9 +83,6 @@ function runGame(chosenButton) {
         if (lives === 0) {
             gameOver();
         }
-
-
-        // Restart
     }
     lastNumber = nextNumber;
     displayNum(lastNumber);
@@ -90,8 +90,8 @@ function runGame(chosenButton) {
 
 function gameOver() {
     let endGameModal = document.getElementById("game-over-modal");
-    endGameModal.style.display = "block"
-    document.getElementById("restart-game").addEventListener("click", restartGame)
+    endGameModal.style.display = "block";
+    document.getElementById("restart-game").addEventListener("click", restartGame);
 
 
 }
@@ -103,5 +103,5 @@ function restartGame() {
 Manipulates the DOM and throws the random generated userNum into the span box
 */
 function displayNum(userNum) {
-    document.getElementById("game-num").textContent = `${userNum}`
+    document.getElementById("game-num").textContent = `${userNum}`;
 }
