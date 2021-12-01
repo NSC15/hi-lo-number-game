@@ -20,8 +20,6 @@ let lastNumber;
 
 /*Wait till the full page is loaded before running the game.*/
 document.addEventListener("DOMContentLoaded", function () {
-    // RF: TODO: Better naming than buttons or coontrols - what do they refer to? 
-    // RF: Anyone looking at your code can't tell without actually reading it
     let gameDifficulty = document.getElementsByClassName("game-setting");
     let userAnswer = document.getElementsByClassName("higher_lower_btns");
     for (let button of userAnswer) {
@@ -29,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", higherOrLowerInput);
     }
 
-    // RF: what button (difficulty)? better variable naming needed.
     for (let button of gameDifficulty) {
         button.addEventListener("click", difficultyChoice);
     }
@@ -53,13 +50,9 @@ function difficultyChoice() {
         button.style.display = "none";
     }
     document.getElementById("chosen-difficulty").innerHTML = "You are playing  " + chosenDifficulty;
+    document.getElementById("lives").innerHTML = "Your Lives =  " + lives;
+    document.getElementById("score-display").innerHTML = "Score =  " + score;
 
-
-
-
-    // RF: TODO: Disable the difficulty css display: none here.
-    // RF: TODO: Show the number, buttons etc.
-    // RF: TODO: Show lives etc. in HTML instead of them being hardcoded
     lastNumber = randomNum();
     displayNum(lastNumber);
 }
@@ -79,13 +72,17 @@ function runGame(chosenButton) {
     let nextNumber = randomNum(chosenDifficulty);
     if ((nextNumber > lastNumber && chosenButton == "higher") || (nextNumber < lastNumber && chosenButton == "lower")) {
         score += 1;
-        document.getElementById("score").innerHTML = score;
+        document.getElementById("score-display").innerHTML = "Your Score =  " + score;
         console.log("Correct, increase score")
     } else {
         console.log("Incorrect, decrease life");
         lives -= 1;
-        document.getElementById("lives").innerHTML = lives;
+        document.getElementById("lives").innerHTML = "Your Lives =  " + lives;
         // TODO: Check if life is 0, game over if so
+        if (lives === 0) {
+            alert("You are out of lives - Game Over!")
+
+        }
         // Restart
     }
     lastNumber = nextNumber;
