@@ -5,6 +5,10 @@
 
 }
 
+.bottom-container {
+    padding-bottom: 12px;
+}
+
 .game-body .row {
     padding: 15px;
 }

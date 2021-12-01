@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let gameDifficulty = document.getElementsByClassName("game-setting");
     let userAnswer = document.getElementsByClassName("higher_lower_btns");
     for (let button of userAnswer) {
-        // RF: Split functions don't have them inline here.
         button.addEventListener("click", higherOrLowerInput);
     }
 
@@ -31,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", difficultyChoice);
     }
 })
-
+// Runs game with value of user input e.g Guessed Higher or Lower and gives that value to the runGame function
 function higherOrLowerInput() {
     if (this.getAttribute("data-type") === "higher") {
         runGame("higher");
@@ -78,24 +77,34 @@ function runGame(chosenButton) {
         console.log("Incorrect, decrease life");
         lives -= 1;
         document.getElementById("lives").innerHTML = "Your Lives =  " + lives;
-        // TODO: Check if life is 0, game over if so
         if (lives === 0) {
-            alert("You are out of lives - Game Over!")
-
+            gameOver();
         }
+
+
         // Restart
     }
     lastNumber = nextNumber;
     displayNum(lastNumber);
 }
 
+function gameOver() {
+    let endGameModal = document.getElementById("game-over-modal");
+    endGameModal.style.display = "block"
+    document.getElementById("restart-game").addEventListener("click", restartGame)
+
+
+}
+
+function restartGame() {
+    location.reload();
+}
 /*
 Manipulates the DOM and throws the random generated userNum into the span box
 */
 function displayNum(userNum) {
     document.getElementById("game-num").textContent = `${userNum}`
 }
-
 
 
 function highScore() {}
