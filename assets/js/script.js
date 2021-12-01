@@ -105,6 +105,3 @@ Manipulates the DOM and throws the random generated userNum into the span box
 function displayNum(userNum) {
     document.getElementById("game-num").textContent = `${userNum}`
 }
-
-
-function highScore() {}
