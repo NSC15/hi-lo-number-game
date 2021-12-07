@@ -96,3 +96,8 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 - As evident through the commit history, the initial coding strategy to get to my desired output was long-winded and over complicated - Key mentor sessions to re-write code in a more efficient way with same desired output. For example using an Array with each level with the lives and the max number assigned to them which can be accessed within further functions.  
 
 ## Credits 
+
+- Reuben Ferrante - CI Mentor for code expertise and project planning
+- Bootstrap - Use of Grid System and Modals
+- Google Fonts - Permanent Marker Font
+- Slack Community - In particular Dave Horrocks for answering any issues along the way to completing the project.
