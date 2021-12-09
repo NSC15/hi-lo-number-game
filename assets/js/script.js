@@ -79,21 +79,26 @@ function runGame(chosenButton) {
         score += 1;
         document.getElementById("score-display").innerHTML = "Your Score =  " + score;
         console.log("Correct, increase score");
+        document.getElementById("equalNum").style.visibility = "hidden";
     } else if (nextNumber === lastNumber) {
-        runGame(chosenButton);
-        console.log("my number was equal")
-        return
+        alert("Boths numbers are the same");
+        score += 0;
+        lives += 0;
+        document.getElementById("equalNum").innerHTML = "oops, your number is equal. Press Higher or Lower to Continue";
+        document.getElementById("equalNum").style.visibility = "visible";
 
     } else {
         console.log("Incorrect, decrease life");
         lives -= 1;
         document.getElementById("lives").innerHTML = "Your Lives =  " + lives;
+        document.getElementById("equalNum").style.visibility = "hidden";
     }
     if (lives === 0) {
         gameOver();
     }
     lastNumber = nextNumber;
     displayNum(lastNumber);
+
 }
 
 function gameOver() {
