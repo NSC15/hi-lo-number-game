@@ -63,6 +63,14 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 - Scoring System
 - Game over feedback
 
+## Functions
+
+- DOMContentLoaded Initial Function - This function is assigning variables gameDifficulty and userAnswers to the buttons classes of the difficulty buttons and the higher or lower buttons. Alongside this the Higher or Lower buttons visibility is hidden while a difficulty isnt chosen. Once a difficulty is clicked, this then runs the difficultyChoice function.
+
+- higherorLowerInput - This function is determining which game function to run based on the user guessing Higher or Lower. If user clicked higher then runGame with the Higher result to give a comparison argument to further functions to determine if the user is correct or incorrect.
+
+- difficultyChoice - Function grabs the lives data from the data array dependant which difficulty is chosen and assigns this to the users lives value. It also sets the difficulty buttons visibility to hidden once a difficulty is chosen and then displays text which tells the user "You are playing difficulty ...". Finally, this function also sets the users score to 0 in readiness to playing the game.
+
 
 ## Future Improvements
 

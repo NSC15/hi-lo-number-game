@@ -1,4 +1,6 @@
-// Difficulty settings and their characteristics, assigned when user chooses a difficulty //
+/* 
+Difficulty settings and their characteristics, assigned when user chooses a difficulty
+*/
 let difficultyDataMapper = {
     "easy": {
         "lives": 5,
@@ -18,7 +20,10 @@ let score = 0; // starting score
 let chosenDifficulty;
 let lastNumber;
 
-/*Wait till the full page is loaded before running the game.*/
+/*
+Wait till the full page is loaded before running the game.
+*/
+
 document.addEventListener("DOMContentLoaded", function () {
     let gameDifficulty = document.getElementsByClassName("game-setting");
     let userAnswers = document.getElementsByClassName("higher_lower_btns");
@@ -26,12 +31,13 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", higherOrLowerInput);
         button.style.visibility = "hidden";
     }
-
     for (let button of gameDifficulty) {
         button.addEventListener("click", difficultyChoice);
     }
 });
-// Runs game with value of user input e.g Guessed Higher or Lower and gives that value to the runGame function
+/* 
+Runs game with value of user input e.g Guessed Higher or Lower and gives that value to the runGame function
+*/
 function higherOrLowerInput() {
     if (this.getAttribute("data-type") === "higher") {
         runGame("higher");
@@ -41,8 +47,9 @@ function higherOrLowerInput() {
 }
 
 function difficultyChoice() {
-    // Assign lives based on difficulty (easy/medium/hard)
-    // Import Difficulty Settings button from DOM and hide them once difficulty is chosen via For loop
+    /* Assign lives based on difficulty (easy/medium/hard)
+    Import Difficulty Settings button from DOM and hide them once difficulty is chosen via For loop
+     */
     lives = difficultyDataMapper[this.getAttribute("data-type")].lives;
     chosenDifficulty = this.getAttribute("data-type");
     let difficultyButtons = document.getElementsByClassName("game-setting");
@@ -54,19 +61,15 @@ function difficultyChoice() {
     document.getElementById("score-display").innerHTML = "Score =  " + score;
     document.getElementsByClassName("higher_lower_btns")[0].style.visibility = 'visible';
     document.getElementsByClassName("higher_lower_btns")[1].style.visibility = 'visible';
-
     lastNumber = randomNum();
     displayNum(lastNumber);
 }
-
-
 /*
 Generate Random Numbers for each difficulty
 */
 function randomNum() {
     return Math.ceil(Math.random() * difficultyDataMapper[chosenDifficulty].maxNum);
 }
-
 /*
 main rungame function declaring shown number and number for checking higher or lower
 */
@@ -92,8 +95,6 @@ function gameOver() {
     let endGameModal = document.getElementById("game-over-modal");
     endGameModal.style.display = "block";
     document.getElementById("restart-game").addEventListener("click", restartGame);
-
-
 }
 
 function restartGame() {
