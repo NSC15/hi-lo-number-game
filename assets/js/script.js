@@ -17,6 +17,7 @@ let difficultyDataMapper = {
 };
 let lives = 0; // initially until difficulty is chosen
 let score = 0; // starting score
+let highScore = 0;
 let chosenDifficulty;
 let lastNumber;
 
@@ -34,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let button of gameDifficulty) {
         button.addEventListener("click", difficultyChoice);
     }
+    document.getElementById("highScore").innerHTML = "HighScore = " + highScore;
 });
 /* 
 Runs game with value of user input e.g Guessed Higher or Lower and gives that value to the runGame function
@@ -81,7 +83,6 @@ function runGame(chosenButton) {
         console.log("Correct, increase score");
         document.getElementById("equalNum").style.visibility = "hidden";
     } else if (nextNumber === lastNumber) {
-        alert("Boths numbers are the same");
         score += 0;
         lives += 0;
         document.getElementById("equalNum").innerHTML = "oops, your number is equal. Press Higher or Lower to Continue";
@@ -104,6 +105,7 @@ function runGame(chosenButton) {
 function gameOver() {
     let endGameModal = document.getElementById("game-over-modal");
     endGameModal.style.display = "block";
+    document.getElementById("modalHighScore").innerHTML = "You scored  " + score;
     document.getElementById("restart-game").addEventListener("click", restartGame);
 }
 
