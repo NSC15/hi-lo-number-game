@@ -17,9 +17,10 @@ let difficultyDataMapper = {
 };
 let lives = 0; // initially until difficulty is chosen
 let score = 0; // starting score
-let highScore = 0;
 let chosenDifficulty;
 let lastNumber;
+var highScore = localStorage.setItem('highScore', score);
+
 
 /*
 Wait till the full page is loaded before running the game.
@@ -102,11 +103,14 @@ function runGame(chosenButton) {
 
 }
 
-function gameOver() {
+function gameOver(highScore) {
     let endGameModal = document.getElementById("game-over-modal");
     endGameModal.style.display = "block";
     document.getElementById("modalHighScore").innerHTML = "You scored  " + score;
     document.getElementById("restart-game").addEventListener("click", restartGame);
+    var highScore = localStorage.setItem('highScore', score);
+    highScore = localStorage.getItem("highScore", score);
+    document.getElementById("highScore").innerHTML = "HighScore = " + highScore;
 }
 
 function restartGame() {
