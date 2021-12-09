@@ -79,13 +79,18 @@ function runGame(chosenButton) {
         score += 1;
         document.getElementById("score-display").innerHTML = "Your Score =  " + score;
         console.log("Correct, increase score");
+    } else if (nextNumber === lastNumber) {
+        runGame(chosenButton);
+        console.log("my number was equal")
+        return
+
     } else {
         console.log("Incorrect, decrease life");
         lives -= 1;
         document.getElementById("lives").innerHTML = "Your Lives =  " + lives;
-        if (lives === 0) {
-            gameOver();
-        }
+    }
+    if (lives === 0) {
+        gameOver();
     }
     lastNumber = nextNumber;
     displayNum(lastNumber);

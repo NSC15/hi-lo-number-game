@@ -1,5 +1,4 @@
 .game-body {
-    background-color: #135811;
     font-family: Permanent Marker, sans-serif;
     font-size: 1.5em;
 
@@ -16,7 +15,7 @@
 h1 {
     text-align: center;
     padding-top: 10px;
-    color: #fff;
+    color: #000;
 }
 
 .game-area {
