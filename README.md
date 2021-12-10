@@ -1,8 +1,8 @@
 # Hi-Lo Number Game
 
-## Live Link - https://nsc15.github.io/hi-lo-number-game/
+## Live Link - <https://nsc15.github.io/hi-lo-number-game/>
 
-![](assets/images/responsive-game.webp)
+![responsive game image](assets/images/responsive-game.webp)
 
 ## Background
 
@@ -18,7 +18,7 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 - I want to be able to clearly understand how to being the game
 - I want to be able to see what scores i have got in previous rounds of playing the game.
 
-### Target Audience 
+### Target Audience
 
 - The Target Audience for this game is aimed at but not limited to children and young adults. This game doesnt really include educational material but aims more to gain the users attention by the essence of chance that the game possess'. The old saying 'sometimes less is more' is key here with the simplistic design and its basic gameplay but its potential ability to attract peoples attention and competitive streak.
 
@@ -29,7 +29,7 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 - This project's main colour scheme consists of Green (To emulate an arcade board game feeling)
 - Grey / White and Black for the plain and effective constrast.
 
-![](assets/images/game-colours.webp)
+![game colours used](assets/images/game-colours.webp)
 
 ### Font
 
@@ -39,32 +39,31 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 
 ### Layout of the Game
 
-### The landing page of the game - Awaiting User choosing a difficulty 
+### The landing page of the game - Awaiting User choosing a difficulty
 
-- ![](assets/images/game-main.webp)
+- ![game landing page](assets/images/game-main.webp)
 
-### The games instructions modal, accessable through the blue question mark button 
+### The games instructions modal, accessable through the blue question mark button
 
-- ![](assets/images/game-instructions.webp)
+- ![instructions modal](assets/images/game-instructions.webp)
 
-### The user has now chosen a difficulty and been assigned lives, score set to 0, number generated and Higher or Lower control buttons are now visible 
+### The user has now chosen a difficulty and been assigned lives, score set to 0, number generated and Higher or Lower control buttons are now visible
 
-- ![](assets/images/game-difficulty.webp)
+- ![difficulty chosen](assets/images/game-difficulty.webp)
 
 ### The action of the game, lives and score updated depending on user performance
 
-- ![](assets/images/game-inplay.webp)
+- ![game inplay ](assets/images/game-inplay.webp)
 
-### The game over modal with the Restart button to replay the game 
+### The game over modal with the Restart button to replay the game
 
-- ![](assets/images/game-gameover.webp)
+- ![gameover modal](assets/images/game-gameover.webp)
 
 ### WireFrames
 
 - As evident through the wireframe, the design for this game is one of simplicity, with the clear focal point being the game controls (Higher or Lower Buttons) and the random number placeholder box. I have chosen the green background in an attempt to emulate an old school arcade board game feel.
 
-![](assets/images/game-wireframe.webp)
-
+![project planning wireframe](assets/images/game-wireframe.webp)
 
 ## Features
 
@@ -111,22 +110,20 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 - Gitpod - Project IDE
 - Git - Version Control which passes data through to Github for storing and deploying as finished project.
 
-
 ## Automatic Testing & Validation
 
 - W3C HTML Validator - HTML code validated with no errors.
 - W3C Jigsaw CSS Validator - CSS code validated with no errors.
 - JSHint - Javascript code validated with no errors.
 - Lighthouse
-- ![](assets/images/lighthouse.webp) 
+- ![lighthouse performance report](assets/images/lighthouse.webp)
 
-
-## Manual Testing & Bugs 
+## Manual Testing & Bugs
 
 - As evident through the commit history, the initial coding strategy to get to my desired output was long-winded and over complicated - Key mentor sessions to re-write code in a more efficient way with same desired output. For example using an Array with each level with the lives and the max number assigned to them which can be accessed within further functions.
 - Dev Tools was used throughout the project development utilising console logs to see desired output is achieved before moving on to next functions.
 - Manual Device Testing - I used personal desktop pc's aswell as phones and tablets to assess the games responsiveness while developing.
-- Manual testing scenarios - 
+- Manual testing scenarios -
 
 - Pick a difficulty - I chose each difficulty and tested that a number was generated. Passed.
 - User Choice - I set up a console log to output my choice i.e if the higher button was clicked log "You chose higher" and the same for lower. Passed
@@ -136,8 +133,16 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 
 ## Deployment
 
-- This project is Deployed via GitHub Pages. My project was created in Gitpod and Git was used for Version Control.
-- To deploy via GitHub Pages - 
+### My Project Deployment
+
+- This project is Deployed via GitHub Pages
+- My project was created in Gitpod
+- Git was used for Version Control
+- My project was deployed once i started testing via multiple devices and regularly updated when i pushed from Git.
+
+### GitHub Pages Deployment
+
+- To deploy via GitHub Pages -
 - Log in to GitHub with your personal account
 - Locate and Choose your repository you wish to deploy
 - Access setting at the far-right of the repository control bar (not the top of webpage)
@@ -162,9 +167,9 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 - Just below the repository control bar, there is a green Gitpod button.
 - This will then open the project in Gitpod for you (if gitpod is installed).
 
-## Credits 
+## Credits
 
 - Reuben Ferrante - CI Mentor for code expertise and project planning
 - Bootstrap - Use of Grid System and Modals
 - Google Fonts - Permanent Marker Font
-- Slack Community - In particular Dave Horrocks for answering any issues along the way to completing the project.
+- Slack Community - In particular Dave Horrocks for answering any issues along the way to completing the project
