@@ -27,11 +27,11 @@ if array is empty set highscores inner html
 else display users high score taken from local storage
 */
 highScores.sort((function (a, b) {
-    return a - b
+    return a - b;
 }));
 highScores.reverse();
 if (highScores.length === 0) {
-    highScoreDisplay.innerHTML = "You currently have no High Scores logged"
+    highScoreDisplay.innerHTML = "You currently have no High Scores logged";
 } else {
     highScoreDisplay.innerHTML = "Your High Score is -  " + highScores[0];
 }
@@ -96,8 +96,8 @@ function runGame(chosenButton) {
         console.log("Correct, increase score");
         document.getElementById("equalNum").style.visibility = "hidden";
     } else if (lastNumber === nextNumber) {
-        lives -= 0
-        score += 0
+        lives -= 0;
+        score += 0;
         document.getElementById("equalNum").innerHTML = "oops, your number is equal. Press Higher or Lower to Continue";
         document.getElementById("equalNum").style.visibility = "visible";
     } else {
