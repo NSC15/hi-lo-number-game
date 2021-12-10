@@ -20,7 +20,7 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 
 #### Target Audience
 
-- The Target Audience for this game is aimed at but not limited to children and young adults. This game doesnt really include educational material but aims more to gain the users attention by the essence of chance that the game possess'. The old saying 'sometimes less is more' is key here with the simplistic design and its basic gameplay but its potential ability to attract peoples attention and competitive streak.
+- The Target Audience for this game is aimed at but not limited to children and young adults. This game doesnt really include educational material but aims more to gain the users attention by the essence of chance that the game possesses. The old saying 'sometimes less is more' is key here with the simplistic design and its basic gameplay but its potential ability to attract peoples attention and competitive streak.
 
 ## Design
 
