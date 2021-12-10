@@ -39,27 +39,27 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 
 ## Layout of the Game
 
-## The landing page of the game - Awaiting User choosing a difficulty
+### The landing page of the game - Awaiting User choosing a difficulty
 
  ![game landing page](assets/images/game-landing.webp)
 
-## The games instructions modal, accessable through the blue question mark button
+### The games instructions modal, accessable through the blue question mark button
 
  ![instructions modal](assets/images/game-instructions.webp)
 
-## The user has now chosen a difficulty and been assigned lives, score set to 0, number generated and Higher or Lower control buttons are now visible
+### The user has now chosen a difficulty and been assigned lives, score set to 0, number generated and Higher or Lower control buttons are now visible
 
  ![difficulty chosen](assets/images/game-inplay.webp)
 
-## The action of the game, lives and score updated depending on user performance
+### The action of the game, lives and score updated depending on user performance
 
  ![game inplay ](assets/images/game-score-lives.webp)
 
-## The game over modal with the Restart button to replay the game
+### The game over modal with the Restart button to replay the game
 
  ![gameover modal](assets/images/game-gameover.webp)
 
-## The HighScores modal displaying stored highscores locally
+### The HighScores modal displaying stored highscores locally
 
 ![highscores modal](assets/images/game-highscore.webp)
 
