@@ -65,12 +65,21 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 
 ## Functions
 
+- HighScore (Global) - An Array (highScores) is accessible through local storage and the highScoreDisplay is then called within the HighScore modal when the user clicks the HighScores button. The actual highscore data addition is handled with the gameOver function however the array is handled globally by sorting into numerical order (highest - lowest). If the array is empty the DOM manipulates the span with the modal to say There is no high scores logged, however once there is scores to work with the highest is then displayed for the user to see, which will be stored until a deletion of the local storage.
+
 - DOMContentLoaded Initial Function - This function is assigning variables gameDifficulty and userAnswers to the buttons classes of the difficulty buttons and the higher or lower buttons. Alongside this the Higher or Lower buttons visibility is hidden while a difficulty isnt chosen. Once a difficulty is clicked, this then runs the difficultyChoice function.
 
 - higherorLowerInput - This function is determining which game function to run based on the user guessing Higher or Lower. If user clicked higher then runGame with the Higher result to give a comparison argument to further functions to determine if the user is correct or incorrect.
 
 - difficultyChoice - Function grabs the lives data from the data array dependant which difficulty is chosen and assigns this to the users lives value. It also sets the difficulty buttons visibility to hidden once a difficulty is chosen and then displays text which tells the user "You are playing difficulty ...". Finally, this function also sets the users score to 0 in readiness to playing the game.
 
+- randomNum - This function returns a number between 1 and then the max number property of whichever difficulty is chosen for example... Easy will generate a number between 1 and 10.
+
+- runGame - This is the main body of the game to determine if the users answer is correct and then feedback with either an incrementation of 1 to the score if the answer is correct or by decreasing the lives by 1 if the users answer is incorrect. Due to 2 random numbers being generated for the game, there is a chance that these numbers are going to be equal so the original if statement is extended to say if both numbers are equal the score and lives in unaffected and advises the user to click to continue to re-generate numbers. Finally, once the lives get down to 0 the runGame function then calls the gameOver function.
+
+- gameOver - This function essentially calls the gameOver modal onto the display to prompt the user that the game is over and to click the restart button to restart, which in turn calls the gameRestart function. This function also pushes the end score to the highScores array for storage into the local storage.
+
+- gameRestart - This function utilises the location.reload tool, to bring the game back to the start and require the user to pick their difficulty setting then replay.
 
 ## Future Improvements
 

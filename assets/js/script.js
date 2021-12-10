@@ -30,7 +30,6 @@ highScores.sort((function (a, b) {
     return a - b
 }));
 highScores.reverse();
-console.log(highScores);
 if (highScores.length === 0) {
     highScoreDisplay.innerHTML = "You currently have no High Scores logged"
 } else {
