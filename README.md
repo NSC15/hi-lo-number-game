@@ -100,17 +100,55 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 - Git - Version Control which passes data through to Github for storing and deploying as finished project.
 
 
-## Testing & Validation
+## Automatic Testing & Validation
 
 - W3C HTML Validator - HTML code validated with no errors.
 - W3C Jigsaw CSS Validator - CSS code validated with no errors.
 - JSHint - Javascript code validated with no errors.
-- Dev Tools - Initial code tested through console via console logging output of functions first, also used for testing responsiveness.
-- Devices - Different sizes devices used to test responsiveness.
+- Lighthouse
+- ![](assets/images/lighthouse.webp) 
 
-## Bugs 
 
-- As evident through the commit history, the initial coding strategy to get to my desired output was long-winded and over complicated - Key mentor sessions to re-write code in a more efficient way with same desired output. For example using an Array with each level with the lives and the max number assigned to them which can be accessed within further functions.  
+## Manual Testing & Bugs 
+
+- As evident through the commit history, the initial coding strategy to get to my desired output was long-winded and over complicated - Key mentor sessions to re-write code in a more efficient way with same desired output. For example using an Array with each level with the lives and the max number assigned to them which can be accessed within further functions.
+- Dev Tools was used throughout the project development utilising console logs to see desired output is achieved before moving on to next functions.
+- Manual Device Testing - I used personal desktop pc's aswell as phones and tablets to assess the games responsiveness while developing.
+- Manual testing scenarios - 
+
+- Pick a difficulty - I chose each difficulty and tested that a number was generated. Passed.
+- User Choice - I set up a console log to output my choice i.e if the higher button was clicked log "You chose higher" and the same for lower. Passed
+- Click higher or lower upon game loading - No action?! This made me realise in the process of my game i want the user to choose a difficulty so that it will call the random number function so to fix this i added into the initial content loaded function that the visibility CSS would be hidden. Once the difficulty choice function was called the visibility CSS of the higher or lower buttons was then visible. Bug Fixed.
+- What is happening if the random numbers generated are both the same? No user feedback and the user lost a life (Bug) - I adapted the main if statement for correct / incorrect answers to say if the numbers were equal display a span saying so and prompt the user to re-click higher or lower to continue, without losing a life or gaining score. Bug Resolved!
+- Highscore Display, is the modal showing my highest score? Initially i had coded the array to sort the scores and then output it to the modal, however it was showing the lowest score (making the user look bad...). To Fix this i outputted the array to the console and noticed the array was sorted numerically but from lowest to highest and my code is showing index [0] on the array, which led me to add .reverse meaning the highest number would be index[0] resulting in the users actual High Score being shown.
+
+## Deployment
+
+- This project is Deployed via GitHub Pages. My project was created in Gitpod and Git was used for Version Control.
+- To deploy via GitHub Pages - 
+- Log in to GitHub with your personal account
+- Locate and Choose your repository you wish to deploy
+- Access setting at the far-right of the repository control bar (not the top of webpage)
+- Scroll down and click 'Pages'
+- Under 'Source' you will find a dropdown to set your branch to 'main'
+- Once this is done, wait a minute or so and refresh your page
+- You should then see a section telling you your site has been published and a clickable link to access it.
+
+## Forking a Repository
+
+- Forking is a good utility to use to make a copy of an original repository so that this can be edited without making any changed to the original development repository.
+
+- Locate a repository you wish to copy
+- The Fork button is above the repository control bar to the right.
+- Once clicked this will then create the repository copy to your Github account.
+
+## Cloning a Repository
+
+- You can clone a repository straight to Gitpod if needed.
+
+- Locate a repository you wish to clone
+- Just below the repository control bar, there is a green Gitpod button.
+- This will then open the project in Gitpod for you (if gitpod is installed).
 
 ## Credits 
 

@@ -95,12 +95,11 @@ function runGame(chosenButton) {
         document.getElementById("score-display").innerHTML = "Your Score =  " + score;
         console.log("Correct, increase score");
         document.getElementById("equalNum").style.visibility = "hidden";
-    } else if (nextNumber === lastNumber) {
-        score += 0;
-        lives += 0;
+    } else if (lastNumber === nextNumber) {
+        lives -= 0
+        score += 0
         document.getElementById("equalNum").innerHTML = "oops, your number is equal. Press Higher or Lower to Continue";
         document.getElementById("equalNum").style.visibility = "visible";
-
     } else {
         console.log("Incorrect, decrease life");
         lives -= 1;
