@@ -155,7 +155,7 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 - Once this is done, wait a minute or so and refresh your page
 - You should then see a section telling you your site has been published and a clickable link to access it.
 
-## Forking a Repository
+### Forking a Repository
 
 - Forking is a good utility to use to make a copy of an original repository so that this can be edited without making any changed to the original development repository.
 
@@ -163,7 +163,7 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 - The Fork button is above the repository control bar to the right.
 - Once clicked this will then create the repository copy to your Github account.
 
-## Cloning a Repository
+### Cloning a Repository
 
 - You can clone a repository straight to Gitpod if needed.
 
