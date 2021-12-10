@@ -19,8 +19,18 @@ let lives = 0; // initially until difficulty is chosen
 let score = 0; // starting score
 let chosenDifficulty;
 let lastNumber;
-var highScore = localStorage.setItem('highScore', score);
-
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+const highScoreDisplay = document.getElementById("highScoreDisplay");
+highScores.sort((function (a, b) {
+    return a - b
+}));
+highScores.reverse();
+console.log(highScores);
+if (highScores.length === 0) {
+    highScoreDisplay.innerHTML = "You currently have no High Scores logged"
+} else {
+    highScoreDisplay.innerHTML = "Your High Score is -  " + highScores[0];
+}
 
 /*
 Wait till the full page is loaded before running the game.
@@ -36,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let button of gameDifficulty) {
         button.addEventListener("click", difficultyChoice);
     }
-    document.getElementById("highScore").innerHTML = "HighScore = " + highScore;
+    //document.getElementById("HighScoreDisplay").innerHTML = "You currently have no High Scores logged";
 });
 /* 
 Runs game with value of user input e.g Guessed Higher or Lower and gives that value to the runGame function
@@ -96,21 +106,24 @@ function runGame(chosenButton) {
         document.getElementById("equalNum").style.visibility = "hidden";
     }
     if (lives === 0) {
-        gameOver();
+        gameOver(score);
+
     }
     lastNumber = nextNumber;
     displayNum(lastNumber);
 
+
 }
 
-function gameOver(highScore) {
+function gameOver(score) {
     let endGameModal = document.getElementById("game-over-modal");
     endGameModal.style.display = "block";
-    document.getElementById("modalHighScore").innerHTML = "You scored  " + score;
     document.getElementById("restart-game").addEventListener("click", restartGame);
-    var highScore = localStorage.setItem('highScore', score);
-    highScore = localStorage.getItem("highScore", score);
-    document.getElementById("highScore").innerHTML = "HighScore = " + highScore;
+    highScores.push(score);
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+    highScores.splice(1);
+
+
 }
 
 function restartGame() {

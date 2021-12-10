@@ -65,15 +65,42 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <span id="highScore"></span>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                            data-bs-target="#highScore">
+                            HighScores
+                        </button>
                     </div>
                 </div>
-                <!--  BootStrap Button trigger modal -->
+                <!-- Bootstrap Modal Game High Scores Modal-->
+                <div class="modal fade" id="highScore" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true" data-bs-toggle="modal" data-bs-target="#highScore" data-keyboard="false"
+                    data-backdrop="static">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ExitModalLabel">High Score</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <span id="highScoreDisplay"></span>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--  BootStrap Button trigger  Game Instruction modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     ?
                 </button>
 
-                <!-- Bootstrap Modal -->
+                <!-- Bootstrap Modal Game Instructions -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -109,7 +136,7 @@
             </div>
         </div>
 
-
+        <!-- Bootstrap Modal Game Over Modal-->
         <div class="modal fade" id="game-over-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true" data-bs-toggle="modal" data-bs-target="#game-over-modal" data-keyboard="false"
             data-backdrop="static">
