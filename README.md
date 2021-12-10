@@ -10,6 +10,14 @@ The Hi-Lo Number game is my Milestone Two JavaScript Project. I have used HTML /
 
 ## User Experience (UX)
 
+## User Story 
+
+- First Time Visitor Goals
+
+- I want to be able to access the game instructions
+- I want to be able to clearly understand how to being the game
+- I want to be able to see what scores i have got in previous rounds of playing the game.
+
 ## Design
 
 ### Colour Scheme
