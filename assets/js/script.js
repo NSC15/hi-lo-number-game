@@ -19,8 +19,13 @@ let lives = 0; // initially until difficulty is chosen
 let score = 0; // starting score
 let chosenDifficulty;
 let lastNumber;
-const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-const highScoreDisplay = document.getElementById("highScoreDisplay");
+const highScores = JSON.parse(localStorage.getItem("highScores")) || []; //highscore variable
+const highScoreDisplay = document.getElementById("highScoreDisplay"); //highscore display variable
+/*
+numerically sort highscores from low to high then reverse so highest is index 0.
+if array is empty set highscores inner html
+else display users high score taken from local storage
+*/
 highScores.sort((function (a, b) {
     return a - b
 }));
@@ -31,11 +36,9 @@ if (highScores.length === 0) {
 } else {
     highScoreDisplay.innerHTML = "Your High Score is -  " + highScores[0];
 }
-
 /*
 Wait till the full page is loaded before running the game.
 */
-
 document.addEventListener("DOMContentLoaded", function () {
     let gameDifficulty = document.getElementsByClassName("game-setting");
     let userAnswers = document.getElementsByClassName("higher_lower_btns");
@@ -107,25 +110,25 @@ function runGame(chosenButton) {
     }
     if (lives === 0) {
         gameOver(score);
-
     }
     lastNumber = nextNumber;
     displayNum(lastNumber);
-
-
 }
+/*
+Game over function opening a modal notifying the user, pointing the user towards clicking restart,
+ which calls the restart game function
 
+*/
 function gameOver(score) {
     let endGameModal = document.getElementById("game-over-modal");
     endGameModal.style.display = "block";
     document.getElementById("restart-game").addEventListener("click", restartGame);
     highScores.push(score);
     localStorage.setItem('highScores', JSON.stringify(highScores));
-    highScores.splice(1);
-
-
 }
-
+/*
+restarts game via page refresh (highscores still saved in local storage)
+*/
 function restartGame() {
     location.reload();
 }
